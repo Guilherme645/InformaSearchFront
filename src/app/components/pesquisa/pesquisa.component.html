@@ -1,0 +1,20 @@
+<div class="search-container">
+  <h1>Informa Search</h1>
+  <div class="search-bar">
+    <i class="pi pi-search" style="color: var(--primary-color); margin-right: 8px;"></i>
+    <input 
+      type="text" 
+      [(ngModel)]="termoBusca" 
+      (keyup.enter)="buscarNoticias()"  
+      placeholder="Pesquise no Informa Search ou digite uma URL" 
+    />
+  </div>
+  <div class="results" *ngIf="noticias.length > 0">
+    <div *ngFor="let noticia of noticias" class="result-item">
+      <h2 class="result-title">{{ noticia.titulo }}</h2>
+      <p class="result-description">{{ noticia.descricao }}</p>
+      <a [href]="noticia.link" class="result-link" target="_blank">Ver mais</a>
+      <hr />
+    </div>
+  </div>
+</div>
