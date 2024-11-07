@@ -115,3 +115,19 @@ margin-top: 20px;
 .pagination span:hover {
     text-decoration: underline;
 }
+.favicon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  
+  .source-link {
+    color: #1a0dab;
+    text-decoration: none;
+    font-size: 12px;
+  }
+  
+  .source-link:hover {
+    text-decoration: underline;
+  }

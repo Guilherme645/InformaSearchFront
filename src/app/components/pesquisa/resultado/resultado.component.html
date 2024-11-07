@@ -5,7 +5,7 @@
     <input 
       type="text" 
       [(ngModel)]="termoBusca" 
-      (keyup.enter)="Noticias()"  
+      (keyup.enter)="buscarNoticias()"  
       placeholder="Pesquise no Informa Search ou digite uma URL" 
     />
   </div>
@@ -15,6 +15,12 @@
       {{ noticia.descricao | slice:0:200 }}...
     </p>
     <a [href]="noticia.link" class="result-link" target="_blank">Leia mais</a>
+    
+    <!-- Exibindo o ícone e URL de origem -->
+    <div class="source-info">
+      <img [src]="noticia.faviconUrl" alt="Ícone do site" class="favicon">
+      <a [href]="noticia.sourceUrl" target="_blank" class="source-link">{{ noticia.sourceUrl }}</a>
+    </div>
   </div>
 
   <!-- Navegação de página estilo Google -->

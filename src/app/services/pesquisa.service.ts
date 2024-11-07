@@ -8,6 +8,8 @@ export interface Noticia {
   link: string;
   descricao: string;
   dataPublicacao: string;
+  faviconUrl: string;  // URL do ícone do site
+  sourceUrl: string;   // URL do site de origem
 }
 
 @Injectable({
