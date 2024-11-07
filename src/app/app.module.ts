@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ResultadoComponent } from './components/pesquisa/resultado/resultado.component';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [	
@@ -19,7 +20,9 @@ import { ResultadoComponent } from './components/pesquisa/resultado/resultado.co
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule, 
-    AppRoutingModule
+    AppRoutingModule,
+    PaginatorModule
+    
 
   ],
   providers: [],

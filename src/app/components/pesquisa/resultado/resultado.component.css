@@ -53,11 +53,26 @@ margin-top: 20px;
     margin-top: 20px;
 }
 
-.result-title{
-color: #1a0dab;
-padding-right: 700px;
-
+.result-title {
+    color: #1a0dab;
+    margin-right: 700px;
 }
+
+.result-title a {
+    text-decoration: none; /* Remove o sublinhado no link */
+    color: inherit; /* Usa a cor do .result-title */
+}
+
+.result-item {
+    margin-bottom: 20px;
+}
+
+.result-description {
+    color: #555;
+    margin-top: 5px;
+}
+
+
 
 .results h2 {
     margin-bottom: 2px;
