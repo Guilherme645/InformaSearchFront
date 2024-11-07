@@ -1,0 +1,31 @@
+<!-- resultados.component.html -->
+<div *ngIf="noticias.length > 0; else noResults">
+  <div class="search-bar">
+    <i class="pi pi-search" style="color: var(--primary-color); margin-right: 8px;"></i>
+    <input 
+      type="text" 
+      [(ngModel)]="termoBusca" 
+      (keyup.enter)="Noticias()"  
+      placeholder="Pesquise no Informa Search ou digite uma URL" 
+    />
+  </div>
+  <div *ngFor="let noticia of noticias" class="result-item">
+    <h2 class="result-title">{{ noticia.titulo }}</h2>
+    <p class="result-description">
+      {{ noticia.descricao | slice:0:200 }}...
+    </p>
+    <a [href]="noticia.link" class="result-link" target="_blank">Leia mais</a>
+  </div>
+
+  <!-- Navegação de página estilo Google -->
+  <div class="pagination">
+    <span *ngFor="let num of pageNumbers" (click)="irParaPagina(num)" [class.active]="num - 1 === page">
+      {{ num }}
+    </span>
+    <span (click)="irParaPagina(page + 2)" *ngIf="page < totalPages - 1">Mais</span>
+  </div>
+</div>
+
+<ng-template #noResults>
+  <p>Nenhum resultado encontrado para "{{ termo }}".</p>
+</ng-template>

@@ -6,11 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ResultadoComponent } from './components/pesquisa/resultado/resultado.component';
 
 @NgModule({
   declarations: [	
     AppComponent,
-      PesquisaComponent
+      PesquisaComponent,
+      ResultadoComponent
    ],
   imports: [
     BrowserModule,

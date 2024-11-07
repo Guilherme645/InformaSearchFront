@@ -1,28 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Noticia, PesquisaService } from 'src/app/services/pesquisa.service';
+// pesquisa.component.ts
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { PesquisaService } from 'src/app/services/pesquisa.service';
 
 @Component({
   selector: 'app-pesquisa',
   templateUrl: './pesquisa.component.html',
   styleUrls: ['./pesquisa.component.css']
 })
-export class PesquisaComponent  {
-  termoBusca: string = ''; // Alterado para "termoBusca" para ser mais claro
-  noticias: Noticia[] = []; // Armazena as notícias retornadas pela busca
+export class PesquisaComponent {
+  termoBusca: string = '';
 
-  constructor(private pesquisaService: PesquisaService) {}
+  constructor(private router: Router) {}
 
-  // Método chamado ao pressionar Enter na barra de busca
   buscarNoticias(): void {
     if (this.termoBusca) {
-      this.pesquisaService.buscarNoticias(this.termoBusca).subscribe(
-        (data: Noticia[]) => {
-          this.noticias = data;
-        },
-        (error) => {
-          console.error("Erro ao buscar notícias", error);
-        }
-      );
+      this.router.navigate(['/resultados'], { queryParams: { termo: this.termoBusca, page: 0, pageSize: 7 } });
     }
   }
-}  
+}

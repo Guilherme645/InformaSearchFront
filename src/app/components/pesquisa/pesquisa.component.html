@@ -9,12 +9,4 @@
       placeholder="Pesquise no Informa Search ou digite uma URL" 
     />
   </div>
-  <div class="results" *ngIf="noticias.length > 0">
-    <div *ngFor="let noticia of noticias" class="result-item">
-      <h2 class="result-title">{{ noticia.titulo }}</h2>
-      <p class="result-description">{{ noticia.descricao }}</p>
-      <a [href]="noticia.link" class="result-link" target="_blank">Ver mais</a>
-      <hr />
-    </div>
-  </div>
 </div>
