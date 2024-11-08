@@ -1,12 +1,22 @@
-<div class="search-container">
+<div class="pesquisa-container">
   <h1>Informa Search</h1>
+
+  <!-- Barra de busca com termo e categoria -->
   <div class="search-bar">
-    <i class="pi pi-search" style="color: var(--primary-color); margin-right: 8px;"></i>
-    <input 
-      type="text" 
-      [(ngModel)]="termoBusca" 
-      (keyup.enter)="buscarNoticias()"  
-      placeholder="Pesquise no Informa Search ou digite uma URL" 
+    <input
+      type="text"
+      [(ngModel)]="termoBusca"
+      (keyup.enter)="buscarNoticias()"
+      placeholder="Pesquise no Informa Search ou digite uma URL"
     />
+
+    <select [(ngModel)]="categoriaSelecionada">
+      <option value="">Todas as Categorias</option>
+      <option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</option>
+    </select>
+
+    <button (click)="buscarNoticias()" class="search-button">
+      Buscar
+    </button>
   </div>
 </div>

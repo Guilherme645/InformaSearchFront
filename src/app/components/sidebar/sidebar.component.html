@@ -1,0 +1,13 @@
+<div class="card flex justify-content-center">
+  <p-sidebar [(visible)]="sidebarVisible">
+      <h3>Sidebar</h3>
+    
+      <p-button
+      icon="pi pi-arrow-right"
+      label="login"
+      routerLink="/login"
+      
+    ></p-button>
+  </p-sidebar>
+  <p-button (onClick)="sidebarVisible = true" icon="pi pi-arrow-right" />
+</div>

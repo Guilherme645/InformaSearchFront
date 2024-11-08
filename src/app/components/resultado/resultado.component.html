@@ -1,11 +1,12 @@
 <!-- resultados.component.html -->
 <div *ngIf="noticias.length > 0; else noResults">
+  <app-sidebar></app-sidebar>
   <div class="search-bar">
     <i class="pi pi-search" style="color: var(--primary-color); margin-right: 8px;"></i>
     <input 
       type="text" 
       [(ngModel)]="termoBusca" 
-      (keyup.enter)="Noticias()"  
+      (keyup.enter)="pesquisarNovamente()"  
       placeholder="Pesquise no Informa Search ou digite uma URL" 
     />
   </div>

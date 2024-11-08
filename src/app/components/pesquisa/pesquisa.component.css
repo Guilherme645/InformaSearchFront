@@ -27,6 +27,46 @@
     color: white;
     border-radius: 4px;
   }
+  .button-group {
+    display: flex;
+    gap: 8px;
+    margin-left: 50px;
+    margin-top: -20px;
+  }
+  
+  .button-group button {
+    background-color: #f8f9fa;
+    border: 1px solid #d1d1d1;
+    color: #5f6368;
+    border-radius: 18px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .button-group button:hover {
+    background-color: #e8e8e8;
+  }
+  
+  .button-group button:focus {
+    background-color: #d1d1d1;
+    outline: none;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .search-bar input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
   
   .results {
     margin-top: 20px;

@@ -6,14 +6,30 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ResultadoComponent } from './components/pesquisa/resultado/resultado.component';
 import { PaginatorModule } from 'primeng/paginator';
+import { PagePesquisaComponent } from './pages/PagePesquisa/PagePesquisa.component';
+import { PageLoginComponent } from './pages/PageLogin/PageLogin.component';
+import { PageResultadoComponent } from './pages/PageResultado/PageResultado.component';
+import { PageGeradorRssComponent } from './pages/PageGeradorRss/PageGeradorRss.component';
+import { ResultadoComponent } from './components/resultado/resultado.component';
+import { LoginComponent } from './components/login/login.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidebarModule } from 'primeng/sidebar';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [	
     AppComponent,
       PesquisaComponent,
-      ResultadoComponent
+      ResultadoComponent,
+      PagePesquisaComponent,
+      PageLoginComponent,
+      PageResultadoComponent,
+      PageGeradorRssComponent,
+      SidebarComponent,
+      LoginComponent
    ],
   imports: [
     BrowserModule,
@@ -21,7 +37,11 @@ import { PaginatorModule } from 'primeng/paginator';
     ReactiveFormsModule,
     HttpClientModule, 
     AppRoutingModule,
-    PaginatorModule
+    PaginatorModule,
+    DropdownModule,
+    BrowserAnimationsModule, 
+    SidebarModule,
+    ButtonModule
     
 
   ],
