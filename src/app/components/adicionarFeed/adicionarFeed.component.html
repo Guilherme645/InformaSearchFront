@@ -1,0 +1,43 @@
+<app-sidebar></app-sidebar>
+<div class="p-fluid adicionar-feed-container">
+  <h2>Adicionar Novo Feed RSS</h2>
+
+  <!-- Input de URL -->
+  <div class="p-field">
+    <label for="rssUrl" class="p-mb-2">URL do Feed RSS:</label>
+    <input
+      id="rssUrl"
+      type="text"
+      [(ngModel)]="rssUrl"
+      class="p-inputtext p-component"
+      placeholder="Digite a URL do feed RSS"
+    />
+  </div>
+
+  <!-- Input de Categorias -->
+  <div class="p-field">
+    <label for="categorias" class="p-mb-2">Categorias (separadas por vírgula):</label>
+    <input
+      id="categorias"
+      type="text"
+      [(ngModel)]="categorias"
+      class="p-inputtext p-component"
+      placeholder="Exemplo: tecnologia, educação, saúde"
+    />
+  </div>
+
+  <!-- Botão para adicionar o feed -->
+  <div class="p-mt-3">
+    <button 
+      pButton 
+      type="button" 
+      label="Adicionar Feed" 
+      icon="pi pi-plus" 
+      class="p-button-rounded p-button-primary" 
+      (click)="adicionarFeed()"
+    ></button>
+  </div>
+
+  <!-- Mensagem de feedback -->
+  <p *ngIf="mensagem" class="mensagem p-mt-3">{{ mensagem }}</p>
+</div>

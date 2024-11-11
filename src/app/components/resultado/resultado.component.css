@@ -125,6 +125,7 @@ margin-top: 20px;
 .pagination span.active {
     font-weight: bold;
     text-decoration: underline;
+    text-align: center;
 }
 
 .pagination span:hover {

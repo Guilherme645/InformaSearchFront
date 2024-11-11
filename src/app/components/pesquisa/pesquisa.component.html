@@ -1,3 +1,4 @@
+<app-sidebar></app-sidebar>
 <div class="pesquisa-container">
   <h1>Informa Search</h1>
 
@@ -10,13 +11,13 @@
       placeholder="Pesquise no Informa Search ou digite uma URL"
     />
 
-    <select [(ngModel)]="categoriaSelecionada">
-      <option value="">Todas as Categorias</option>
-      <option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</option>
+    <select [(ngModel)]="categoriaSelecionada" class="categoria-select">
+      <option value=""><strong> Todas as Categorias </strong></option>
+      <option *ngFor="let categoria of categorias" [value]="categoria"><strong>{{ categoria }}</strong> </option>
     </select>
 
     <button (click)="buscarNoticias()" class="search-button">
-      Buscar
+     <strong> Buscar </strong>
     </button>
   </div>
 </div>

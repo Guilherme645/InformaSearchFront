@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class PesquisaComponent {
   termoBusca: string = ''; // Termo digitado pelo usuário
   categoriaSelecionada: string = ''; // Categoria escolhida pelo usuário
-  categorias: string[] = ['Tecnologia', 'Política', 'Esportes', 'Entretenimento', 'Negócios']; // Categorias disponíveis
+  categorias: string[] = ['Tecnologia', 'loterias', 'educação', 'carros', 'politica', 'Concursos e Emprego', 'Segurança','blog' ]; 
 
   constructor(private router: Router) {}
 

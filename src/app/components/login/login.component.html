@@ -1,8 +1,11 @@
-<div class="login-container">
+<app-sidebar></app-sidebar>
+
+<div class="p-fluid login-container">
   <h2>Login</h2>
   <form (ngSubmit)="onLogin()" #loginForm="ngForm">
-    <div class="form-group">
-      <label for="email">E-mail</label>
+    <!-- Campo de E-mail -->
+    <div class="p-field">
+      <label for="email" class="p-mb-2">E-mail</label>
       <input
         type="email"
         id="email"
@@ -10,12 +13,13 @@
         [(ngModel)]="email"
         required
         placeholder="Digite seu e-mail"
-        class="form-control"
+        class="p-inputtext p-component"
       />
     </div>
 
-    <div class="form-group">
-      <label for="password">Senha</label>
+    <!-- Campo de Senha -->
+    <div class="p-field">
+      <label for="password" class="p-mb-2">Senha</label>
       <input
         type="password"
         id="password"
@@ -23,12 +27,20 @@
         [(ngModel)]="password"
         required
         placeholder="Digite sua senha"
-        class="form-control"
+        class="p-inputtext p-component"
       />
     </div>
 
-    <button type="submit" class="login-button" [disabled]="!loginForm.valid">
-      Entrar
-    </button>
+    <!-- Botão de Login -->
+    <div class="p-mt-3">
+      <button
+        pButton
+        type="submit"
+        label="Entrar"
+        icon="pi pi-sign-in"
+        class="p-button-rounded p-button-primary"
+        [disabled]="!loginForm.valid"
+      ></button>
+    </div>
   </form>
 </div>

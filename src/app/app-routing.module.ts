@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
 import { ResultadoComponent } from './components/resultado/resultado.component';
 import { LoginComponent } from './components/login/login.component';
+import { AdicionarFeedComponent } from './components/adicionarFeed/adicionarFeed.component';
 
 const routes: Routes = [
-  { path: '', component: PesquisaComponent },
+  { path: 'pesquisa', component: PesquisaComponent },
   { path: 'resultados', component: ResultadoComponent },
+  { path: 'adicionar', component: AdicionarFeedComponent },
   { path: 'login', component: LoginComponent },
 
 ];

@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarModule } from 'primeng/sidebar';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ButtonModule } from 'primeng/button';
+import { AdicionarFeedComponent } from './components/adicionarFeed/adicionarFeed.component';
 
 @NgModule({
   declarations: [	
@@ -29,7 +30,8 @@ import { ButtonModule } from 'primeng/button';
       PageResultadoComponent,
       PageGeradorRssComponent,
       SidebarComponent,
-      LoginComponent
+      LoginComponent,
+      AdicionarFeedComponent
    ],
   imports: [
     BrowserModule,

@@ -1,4 +1,3 @@
-import { PesquisaComponent } from './../components/pesquisa/pesquisa.component';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -51,4 +50,12 @@ export class PesquisaService {
 
     return this.http.get<Noticia[]>(this.apiUrl, { params });
   }
+
+  /**
+   * Adiciona um novo feed RSS com as categorias associadas.
+   * @param rssUrl URL do feed RSS
+   * @param categorias Categorias associadas ao feed
+   * @returns Observable para acompanhar a resposta do backend
+   */
+
 }
