@@ -39,12 +39,26 @@ export class ResultadoComponent implements OnInit {
   }
 
   /**
+   * Limpa as tags <img> do conteúdo da notícia.
+   * @param descricao A descrição da notícia com tags <img>
+   * @returns A descrição sem as tags <img>
+   */
+  limparTagsImg(descricao: string): string {
+    // Usando expressão regular para remover todas as tags <img> e <br>
+    return descricao.replace(/<img[^>]*>/g, '').replace(/<br\s*\/?>/g, '');
+  }
+
+  /**
    * Busca notícias com os parâmetros atuais.
    */
   buscarNoticias(): void {
     this.pesquisaService.buscarNoticias(this.termo, this.categoria, this.page, this.pageSize).subscribe(
       (response) => {
-        this.noticias = response;
+        // Limpa as tags <img> em todas as notícias
+        this.noticias = response.map((noticia) => ({
+          ...noticia,
+          description: this.limparTagsImg(noticia.description), // Limpa a descrição de cada notícia
+        }));
         this.totalItems = response.length > 0 ? 50 : 0; // Exemplo para backend
         this.totalPages = Math.ceil(this.totalItems / this.pageSize);
         this.pageNumbers = Array.from({ length: this.totalPages }, (_, i) => i + 1);

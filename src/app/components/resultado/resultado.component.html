@@ -1,8 +1,15 @@
 <!-- resultados.component.html -->
-  <app-sidebar></app-sidebar>
+<app-sidebar></app-sidebar>
+<div class="search-bar">
   <div class="search-bar">
     <i class="pi pi-search" style="color: var(--primary-color); margin-right: 8px;"></i>
-
+    <input 
+      type="text" 
+      [(ngModel)]="termoBusca" 
+      (keyup.enter)="pesquisarNovamente()"  
+      placeholder="Pesquise no Informa Search ou digite uma URL" 
+    />
+  </div>
   <div *ngFor="let noticia of noticias" class="result-item">
     <h2 class="result-title">{{ noticia.title }}</h2>
     <p class="result-description">
