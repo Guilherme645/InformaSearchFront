@@ -9,11 +9,16 @@ import { Router } from '@angular/router';
 export class PesquisaComponent {
   termoBusca: string = ''; // Termo digitado pelo usuário
   categoriaSelecionada: string = ''; // Categoria escolhida pelo usuário
-  categorias: string[] = ['Tecnologia', 'loterias', 'educação', 'carros', 'politica', 'Concursos e Emprego', 'Segurança','blog' ]; 
+  categorias: string[] = [
+    'Tecnologia', 'Loterias', 'Educação', 'Carros',
+    'Política', 'Concursos e Emprego', 'Segurança', 'Blog'
+  ];
 
   constructor(private router: Router) {}
 
-  // Realiza a navegação para o componente de resultados com os parâmetros
+  /**
+   * Realiza a navegação para o componente de resultados com os parâmetros de busca.
+   */
   buscarNoticias(): void {
     if (this.termoBusca || this.categoriaSelecionada) {
       this.router.navigate(['/resultados'], {

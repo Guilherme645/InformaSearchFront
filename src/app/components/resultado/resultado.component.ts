@@ -32,7 +32,7 @@ export class ResultadoComponent implements OnInit {
       this.page = params['page'] ? +params['page'] : 0;
       this.pageSize = params['pageSize'] ? +params['pageSize'] : 7;
 
-      if (this.termo) {
+      if (this.termo || this.categoria) {
         this.buscarNoticias();
       }
     });
@@ -45,8 +45,7 @@ export class ResultadoComponent implements OnInit {
     this.pesquisaService.buscarNoticias(this.termo, this.categoria, this.page, this.pageSize).subscribe(
       (response) => {
         this.noticias = response;
-        // Exemplo: Se o backend retornar o total de itens, calcule o total de páginas
-        this.totalItems = 100; // Substitua pelo valor retornado pelo backend
+        this.totalItems = response.length > 0 ? 50 : 0; // Exemplo para backend
         this.totalPages = Math.ceil(this.totalItems / this.pageSize);
         this.pageNumbers = Array.from({ length: this.totalPages }, (_, i) => i + 1);
       },

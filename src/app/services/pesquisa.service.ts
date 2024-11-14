@@ -5,10 +5,10 @@ import { Observable } from 'rxjs';
 // Interface para representar uma notícia
 export interface Noticia {
   id: string;
-  titulo: string;
+  title: string; // Atualize para refletir o campo do backend
+  description: string;
   link: string;
-  descricao: string;
-  dataPublicacao: string;
+  pubDate: string;
   faviconUrl: string;
   sourceUrl: string;
   categoria: string;
@@ -18,7 +18,7 @@ export interface Noticia {
   providedIn: 'root',
 })
 export class PesquisaService {
-  private readonly apiUrl = 'http://localhost:8080/noticias/noticiasC'; // Altere para o endpoint do backend
+  private readonly apiUrl = 'http://localhost:8080'; // Base URL do backend
 
   constructor(private http: HttpClient) {}
 
@@ -48,7 +48,16 @@ export class PesquisaService {
       params = params.set('categoria', categoria);
     }
 
-    return this.http.get<Noticia[]>(this.apiUrl, { params });
+    return this.http.get<Noticia[]>(`${this.apiUrl}/buscar`, { params });
+  }
+
+
+  /**
+   * Processa os feeds RSS e armazena as notícias no backend.
+   * @returns Observable para acompanhar a resposta do backend
+   */
+  processarFeeds(): Observable<any> {
+    return this.http.post(`${this.apiUrl}/processar-rss`, null);
   }
 
   /**
@@ -57,5 +66,10 @@ export class PesquisaService {
    * @param categorias Categorias associadas ao feed
    * @returns Observable para acompanhar a resposta do backend
    */
-
+  adicionarFeedRSS(rssUrl: string, categorias: string[]): Observable<any> {
+    return this.http.post(`${this.apiUrl}/adicionar-feed`, {
+      url: rssUrl,
+      categorias,
+    });
+  }
 }
