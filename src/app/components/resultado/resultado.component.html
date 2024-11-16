@@ -1,38 +1,51 @@
-<!-- resultados.component.html -->
 <app-sidebar></app-sidebar>
-<div class="search-bar">
+
+<div class="resultados-container">
+  <!-- Barra de pesquisa -->
   <div class="search-bar">
-    <i class="pi pi-search" style="color: var(--primary-color); margin-right: 8px;"></i>
-    <input 
-      type="text" 
-      [(ngModel)]="termoBusca" 
-      (keyup.enter)="pesquisarNovamente()"  
-      placeholder="Pesquise no Informa Search ou digite uma URL" 
+    <input
+      type="text"
+      [(ngModel)]="termo"
+      (keyup.enter)="pesquisarNovamente()"
+      placeholder="Pesquise no Informa Search ou digite uma URL"
     />
   </div>
+
+  <!-- Lista de notícias -->
   <div *ngFor="let noticia of noticias" class="result-item">
+    <!-- Título da notícia -->
     <h2 class="result-title">{{ noticia.title }}</h2>
+
+    <!-- Descrição da notícia -->
     <p class="result-description">
-      {{ noticia.description | slice:0:200 }}...
+      {{ noticia.description | slice: 0: 200 }}...
     </p>
+
+    <!-- Link para a notícia -->
     <a [href]="noticia.link" class="result-link" target="_blank">Leia mais</a>
 
-    <!-- Exibindo o ícone e URL de origem -->
+    <!-- Informações adicionais -->
     <div class="source-info">
-      <img [src]="noticia.faviconUrl" alt="Ícone do site" class="favicon">
+      <img
+        *ngIf="noticia.faviconUrl"
+        [src]="noticia.faviconUrl"
+        alt="Ícone do site"
+        class="favicon"
+      />
       <a [href]="noticia.sourceUrl" target="_blank" class="source-link">{{ noticia.sourceUrl }}</a>
     </div>
   </div>
 
-  <!-- Navegação de página estilo Google -->
+  <!-- Paginação -->
   <div class="pagination">
     <span *ngFor="let num of pageNumbers" (click)="irParaPagina(num)" [class.active]="num - 1 === page">
       {{ num }}
     </span>
     <span (click)="irParaPagina(page + 2)" *ngIf="page < totalPages - 1">Mais</span>
   </div>
-</div>
 
-<ng-template #noResults>
-  <p>Nenhum resultado encontrado para "{{ termo }}".</p>
-</ng-template>
+  <!-- Exibição caso não haja resultados -->
+  <ng-template #noResults>
+    <p>Nenhum resultado encontrado para "{{ termo }}".</p>
+  </ng-template>
+</div>

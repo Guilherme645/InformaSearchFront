@@ -2,7 +2,6 @@
 <div class="pesquisa-container">
   <h1>Informa Search</h1>
 
-  <!-- Barra de busca com termo e categoria -->
   <div class="search-bar">
     <input
       type="text"
@@ -12,12 +11,14 @@
     />
 
     <select [(ngModel)]="categoriaSelecionada" class="categoria-select">
-      <option value=""><strong> Todas as Categorias </strong></option>
-      <option *ngFor="let categoria of categorias" [value]="categoria"><strong>{{ categoria }}</strong> </option>
+      <option value="">Todas as Categorias</option>
+      <option *ngFor="let categoria of categorias" [value]="categoria">
+        {{ categoria }}
+      </option>
     </select>
 
     <button (click)="buscarNoticias()" class="search-button">
-     <strong> Buscar </strong>
+      Buscar
     </button>
   </div>
 </div>
