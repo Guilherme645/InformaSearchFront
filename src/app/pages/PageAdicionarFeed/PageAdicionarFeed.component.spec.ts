@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { GeradorRssComponent } from './GeradorRss.component';
+import { PageAdicionarFeedComponent } from './PageAdicionarFeed.component';
 
-describe('GeradorRssComponent', () => {
-  let component: GeradorRssComponent;
-  let fixture: ComponentFixture<GeradorRssComponent>;
+describe('PageAdicionarFeedComponent', () => {
+  let component: PageAdicionarFeedComponent;
+  let fixture: ComponentFixture<PageAdicionarFeedComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GeradorRssComponent ]
+      declarations: [ PageAdicionarFeedComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GeradorRssComponent);
+    fixture = TestBed.createComponent(PageAdicionarFeedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

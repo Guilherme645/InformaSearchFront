@@ -10,7 +10,6 @@ import { PaginatorModule } from 'primeng/paginator';
 import { PagePesquisaComponent } from './pages/PagePesquisa/PagePesquisa.component';
 import { PageLoginComponent } from './pages/PageLogin/PageLogin.component';
 import { PageResultadoComponent } from './pages/PageResultado/PageResultado.component';
-import { PageGeradorRssComponent } from './pages/PageGeradorRss/PageGeradorRss.component';
 import { ResultadoComponent } from './components/resultado/resultado.component';
 import { LoginComponent } from './components/login/login.component';
 import { DropdownModule } from 'primeng/dropdown';
@@ -19,6 +18,10 @@ import { SidebarModule } from 'primeng/sidebar';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ButtonModule } from 'primeng/button';
 import { AdicionarFeedComponent } from './components/adicionarFeed/adicionarFeed.component';
+import { TabViewModule } from 'primeng/tabview';
+import { InputTextModule } from 'primeng/inputtext';
+import { PageAdicionarFeedComponent } from './pages/PageAdicionarFeed/PageAdicionarFeed.component';
+
 
 @NgModule({
   declarations: [	
@@ -28,10 +31,11 @@ import { AdicionarFeedComponent } from './components/adicionarFeed/adicionarFeed
       PagePesquisaComponent,
       PageLoginComponent,
       PageResultadoComponent,
-      PageGeradorRssComponent,
       SidebarComponent,
       LoginComponent,
-      AdicionarFeedComponent
+      AdicionarFeedComponent,
+      LoginComponent,
+      PageAdicionarFeedComponent
    ],
   imports: [
     BrowserModule,
@@ -43,7 +47,10 @@ import { AdicionarFeedComponent } from './components/adicionarFeed/adicionarFeed
     DropdownModule,
     BrowserAnimationsModule, 
     SidebarModule,
-    ButtonModule
+    ButtonModule,
+    TabViewModule,
+    InputTextModule
+    
     
 
   ],

@@ -1,38 +1,29 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { PesquisaService } from 'src/app/services/pesquisa.service';
 
 @Component({
-  selector: 'app-adicionarFeed',
+  selector: 'app-adicionar-feed',
   templateUrl: './adicionarFeed.component.html',
-  styleUrls: ['./adicionarFeed.component.css']
+  styleUrls: ['./adicionarFeed.component.css'],
 })
 export class AdicionarFeedComponent {
-  rssUrl: string = '';
-  categorias: string = '';
-  mensagem: string = '';
+  form = {
+    nome: '',
+    urlId: '',
+    descricao: '',
+    tipoIndexacao: null,
+    modelo: null,
+  };
 
-  constructor(private pesquisaService: PesquisaService) {}
+  tipoIndexacaoOptions = [
+    { label: 'Indexação A', value: 'A' },
+    { label: 'Indexação B', value: 'B' },
+    { label: 'Indexação C', value: 'C' },
+  ];
 
-  /**
-   * Adiciona um novo feed RSS chamando o serviço.
-   */
-  adicionarFeed(): void {
-    if (!this.rssUrl || !this.categorias) {
-      this.mensagem = 'Por favor, preencha todos os campos.';
-      return;
-    }
-
-    // Chama o serviço para adicionar o feed
-    this.pesquisaService.adicionarFeedRSS(this.rssUrl, this.categorias).subscribe({
-      next: () => {
-        this.mensagem = 'Feed adicionado com sucesso!';
-        this.rssUrl = '';
-        this.categorias = '';
-      },
-      error: (err) => {
-        this.mensagem = `Erro ao adicionar feed: ${err.error || err.message}`;
-      }
-    });
-  }
+  modeloOptions = [
+    { label: 'Modelo X', value: 'X' },
+    { label: 'Modelo Y', value: 'Y' },
+    { label: 'Modelo Z', value: 'Z' },
+  ];
 }

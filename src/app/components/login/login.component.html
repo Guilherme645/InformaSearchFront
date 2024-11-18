@@ -1,46 +1,23 @@
 <app-sidebar></app-sidebar>
-
-<div class="p-fluid login-container">
-  <h2>Login</h2>
-  <form (ngSubmit)="onLogin()" #loginForm="ngForm">
-    <!-- Campo de E-mail -->
-    <div class="p-field">
-      <label for="email" class="p-mb-2">E-mail</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        [(ngModel)]="email"
-        required
-        placeholder="Digite seu e-mail"
-        class="p-inputtext p-component"
-      />
-    </div>
-
-    <!-- Campo de Senha -->
-    <div class="p-field">
-      <label for="password" class="p-mb-2">Senha</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        [(ngModel)]="password"
-        required
-        placeholder="Digite sua senha"
-        class="p-inputtext p-component"
-      />
-    </div>
-
-    <!-- Botão de Login -->
-    <div class="p-mt-3">
-      <button
-        pButton
-        type="submit"
-        label="Entrar"
-        icon="pi pi-sign-in"
-        class="p-button-rounded p-button-primary"
-        [disabled]="!loginForm.valid"
-      ></button>
-    </div>
-  </form>
+<div class="login-container">
+  <div class="login-box">
+    <h1>Template</h1>
+    <table class="login-table">
+      <tr>
+        <td><label for="login">Login</label></td>
+        <td>
+          <input
+            type="text" id="login" placeholder="Digite seu login"class="input" />
+        </td>
+      </tr>
+      <tr>
+        <td><label for="senha">Senha</label></td>
+        <td>
+          <input
+          type="password" id="senha"placeholder="Digite sua senha"class="input" />
+        </td>
+      </tr>
+    </table>
+    <button class="btn">Entrar</button>
+  </div>
 </div>

@@ -1,21 +1,110 @@
-.adicionar-feed-container {
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: center;
-  }
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.438);
+  font-family: Arial, sans-serif;
+  margin-top: 50px;
+
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.tab-container {
+  margin-bottom: 2rem;
+}
+
+.tab-header {
+  display: flex;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 1rem;
+}
+
+.tab-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-button.active {
+  color: #f87171;
+  font-weight: bold;
+  border-bottom: 2px solid #f87171;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+input:focus {
+  border-color: #f87171;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(248, 113, 113, 0.2);
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
   
-  .adicionar-feed-container h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .p-field {
-    margin-bottom: 15px;
-  }
-  
-  .mensagem {
-    color: green;
-    font-weight: bold;
-  }
-  
+}
+
+.secondary-button {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #555;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  background: #f5f5f5;
+}
+
+.primary-button {
+  background: #4263f4;
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background: #243eb1;
+}

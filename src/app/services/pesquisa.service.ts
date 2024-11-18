@@ -72,11 +72,12 @@ export class PesquisaService {
    * @param categorias Categorias associadas ao feed
    * @returns Observable para acompanhar a resposta do backend
    */
-  adicionarFeedRSS(url: string, categorias: string): Observable<any> {
+  adicionarFeedRSS(url: string, categorias: string[]): Observable<any> {
     const body = {
       url: url,
-      categorias: categorias.split(',').map((categoria) => categoria.trim()), // Converte categorias para um array
+      categorias: categorias, // Pode ser um array
     };
     return this.http.post(`${this.apiUrl}/adicionar-feed`, body);
   }
+  
 }
