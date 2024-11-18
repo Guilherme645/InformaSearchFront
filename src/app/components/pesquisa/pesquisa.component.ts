@@ -10,14 +10,15 @@ export class PesquisaComponent {
   termoBusca: string = '';
   categoriaSelecionada: string = '';
   categorias: string[] = [
-    'Tecnologia',
-    'Loterias',
+    'Tecnologia e Games',
+    'Brasil',
     'Educação',
-    'Carros',
-    'Política',
+    'Carros, Autoesporte',
+    'Mundo',
     'Concursos e Emprego',
-    'Segurança',
-    'Blog',
+    'Música',
+    'Natureza'
+
   ];
 
   constructor(private router: Router) {}
