@@ -20,6 +20,15 @@ body {
     margin-top: 50px;
 }
 
+.result-title a {
+  text-decoration: none;
+  color: #0000ee; /* Cor padrão do link */
+}
+
+.result-title a:hover {
+  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
 /* Barra de pesquisa */
 .search-bar input {
     width: 50%;
@@ -27,11 +36,12 @@ body {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 20px;
+
 }
 
 .search-bar{
-margin-left: 20px;
-margin-top: 20px;
+margin-left: 200px;
+margin-top: -30px;
 }
 
 /* Botão de pesquisa */
@@ -55,8 +65,7 @@ margin-top: 20px;
 
 .result-title {
     color: #1a0dab;
-    margin-right: 700px;
-}
+    padding-right: 500px;}
 
 .result-title a {
     text-decoration: none; /* Remove o sublinhado no link */
@@ -100,37 +109,13 @@ margin-top: 20px;
 }
 
 .result-description{
-    padding-right: 700px;
+    padding-right: 400px;
 }
 
 .result-link{
     color: #000000;
 }
 
-/* Paginação */
-.pagination {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 20px;
-}
-
-.pagination span {
-    cursor: pointer;
-    padding: 8px;
-    color: #1a0dab;
-    text-decoration: none;
-}
-
-.pagination span.active {
-    font-weight: bold;
-    text-decoration: underline;
-    text-align: center;
-}
-
-.pagination span:hover {
-    text-decoration: underline;
-}
 .favicon {
     width: 16px;
     height: 16px;
@@ -147,3 +132,11 @@ margin-top: 20px;
   .source-link:hover {
     text-decoration: underline;
   }
+
+
+
+  h3{
+margin-left: 40px;
+margin-top: 20px;
+
+}

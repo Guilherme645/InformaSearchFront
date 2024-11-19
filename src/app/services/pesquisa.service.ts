@@ -79,5 +79,10 @@ export class PesquisaService {
     };
     return this.http.post(`${this.apiUrl}/adicionar-feed`, body);
   }
-  
+
+  getCategorias(): Observable<string[]> {
+    return this.http.get<string[]>(`${this.apiUrl}/categorias`);
+  }
+
+
 }

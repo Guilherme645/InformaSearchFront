@@ -8,14 +8,12 @@ import { Noticia, PesquisaService } from 'src/app/services/pesquisa.service';
   styleUrls: ['./resultado.component.css'],
 })
 export class ResultadoComponent implements OnInit {
-  termo: string = ''; // Termo da busca
-  categoria: string | null = null; // Categoria da busca
-  noticias: Noticia[] = []; // Lista de notícias
-  page: number = 0; // Página atual
-  pageSize: number = 7; // Tamanho da página
-  totalItems: number = 0; // Total de itens (para paginação)
-  totalPages: number = 0; // Total de páginas
-  pageNumbers: number[] = []; // Números de páginas para navegação
+  termo: string = '';
+  categoria: string | null = null;
+  noticias: Noticia[] = [];
+  page: number = 0;
+  pageSize: number = 7;
+  totalItems: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,54 +22,16 @@ export class ResultadoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Obtém parâmetros de consulta para a busca
     this.route.queryParams.subscribe((params) => {
       this.termo = params['termo'] || '';
       this.categoria = params['categoria'] || null;
       this.page = params['page'] ? +params['page'] : 0;
       this.pageSize = params['pageSize'] ? +params['pageSize'] : 10;
 
-      // Realiza a busca inicial
-      if (this.termo || this.categoria) {
-        this.buscarNoticias();
-      }
+      this.buscarNoticias();
     });
   }
 
-  /**
-   * Busca as notícias a partir dos parâmetros.
-   */
-  buscarNoticias(): void {
-    this.pesquisaService.buscarNoticias(this.termo, this.categoria, this.page, this.pageSize).subscribe(
-      (response) => {
-        // Limpa as tags <img> e <br> de cada descrição
-        this.noticias = response.content.map((noticia) => ({
-          ...noticia,
-          description: this.limparTagsImg(noticia.description),
-        }));
-        this.totalItems = response.totalElements;
-        this.totalPages = response.totalPages;
-        this.pageNumbers = Array.from({ length: this.totalPages }, (_, i) => i + 1);
-      },
-      (error) => {
-        console.error('Erro ao buscar notícias:', error);
-      }
-    );
-  }
-
-  /**
-   * Limpa as tags <img> do conteúdo da notícia.
-   * @param descricao A descrição da notícia com tags <img>
-   * @returns A descrição sem as tags <img> e <br>
-   */
-  limparTagsImg(descricao: string): string {
-    // Usando expressão regular para remover todas as tags <img> e <br>
-    return descricao.replace(/<img[^>]*>/g, '').replace(/<br\s*\/?>/g, '');
-  }
-
-  /**
-   * Realiza uma nova busca com o termo fornecido.
-   */
   pesquisarNovamente(): void {
     if (this.termo) {
       this.router.navigate(['/resultados'], {
@@ -80,14 +40,29 @@ export class ResultadoComponent implements OnInit {
     }
   }
 
+  buscarNoticias(): void {
+    this.pesquisaService
+      .buscarNoticias(this.termo, this.categoria, this.page, this.pageSize)
+      .subscribe((response) => {
+        this.noticias = response.content;
+        this.totalItems = response.totalElements;
+      });
+  }
+
   /**
-   * Navega para uma página específica.
-   * @param pagina Número da página a ser exibida.
+   * Atualiza os parâmetros de busca ao trocar de página.
+   * @param event Evento disparado pelo <p-paginator>.
    */
-  irParaPagina(pagina: number): void {
-    this.page = pagina - 1;
+  onPageChange(event: any): void {
+    this.page = event.page;
+    this.pageSize = event.rows;
     this.router.navigate(['/resultados'], {
-      queryParams: { termo: this.termo, categoria: this.categoria, page: this.page, pageSize: this.pageSize },
+      queryParams: {
+        termo: this.termo,
+        categoria: this.categoria,
+        page: this.page,
+        pageSize: this.pageSize,
+      },
     });
   }
 }

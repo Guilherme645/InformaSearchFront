@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { PesquisaService } from 'src/app/services/pesquisa.service';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,22 +7,27 @@ import { Router } from '@angular/router';
   templateUrl: './pesquisa.component.html',
   styleUrls: ['./pesquisa.component.css'],
 })
-export class PesquisaComponent {
+export class PesquisaComponent implements OnInit {
   termoBusca: string = '';
   categoriaSelecionada: string = '';
-  categorias: string[] = [
-    'Tecnologia e Games',
-    'Brasil',
-    'Educação',
-    'Carros, Autoesporte',
-    'Mundo',
-    'Concursos e Emprego',
-    'Música',
-    'Natureza'
+  categorias: string[] = [];
 
-  ];
+  constructor(private router: Router, private PesquisaService: PesquisaService) {}
 
-  constructor(private router: Router) {}
+  ngOnInit(): void {
+    this.carregarCategorias();
+  }
+
+  carregarCategorias(): void {
+    this.PesquisaService.getCategorias().subscribe(
+      (response) => {
+        this.categorias = response;
+      },
+      (error) => {
+        console.error('Erro ao carregar categorias:', error);
+      }
+    );
+  }
 
   buscarNoticias(): void {
     if (this.termoBusca || this.categoriaSelecionada) {
