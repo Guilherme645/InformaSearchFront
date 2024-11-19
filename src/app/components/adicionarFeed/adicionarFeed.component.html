@@ -1,25 +1,31 @@
 <app-sidebar></app-sidebar>
 <div class="container">
-  <h2>Adicionar feed Rss</h2> 
+  <h2>Adicionar feed RSS</h2>
   <div class="buttons">
-    <button class="secondary-button">Cancelar</button>
-    <button class="primary-button">Salvar</button>
+    <button class="secondary-button" (click)="cancelar()">Cancelar</button>
+    <button class="primary-button" (click)="adicionarFeed()">Salvar</button>
   </div>
-  <hr>
-    <div class="tab-content">
-
-      <div class="form">
-        <div class="field">
-          <label for="rssUrl">Adicionar Feed RSS:</label>
-          <input id="rssUrl" type="text" placeholder="Digite o  Feed RSS" />
-        </div>
-        <div class="field">
-          <label for="categoria">Categoria:</label>
-          <input id="categoria" type="text" placeholder="Digite a categoria" />
-        </div>
+  <hr />
+  <div class="tab-content">
+    <div class="form">
+      <div class="field">
+        <label for="rssUrl">Adicionar Feed RSS:</label>
+        <input
+          id="rssUrl"
+          type="text"
+          placeholder="Digite o Feed RSS"
+          [(ngModel)]="rssUrl"
+        />
+      </div>
+      <div class="field">
+        <label for="categoria">Categoria:</label>
+        <input
+          id="categoria"
+          type="text"
+          placeholder="Digite a categoria"
+          [(ngModel)]="categoria"
+        />
       </div>
     </div>
-
-
- 
+  </div>
 </div>

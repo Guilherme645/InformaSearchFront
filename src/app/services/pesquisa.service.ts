@@ -63,26 +63,28 @@ export class PesquisaService {
    * @returns Observable com a resposta do backend
    */
   processarFeeds(): Observable<any> {
-    return this.http.post(`${this.apiUrl}/processar-rss`, null);
+    return this.http.post(`${this.apiUrl}/processarFeeds`, null);
   }
 
   /**
    * Adiciona um novo feed RSS com as categorias associadas.
    * @param url URL do feed RSS
-   * @param categorias Categorias associadas ao feed
+   * @param categoria Categoria associada ao feed
    * @returns Observable para acompanhar a resposta do backend
    */
-  adicionarFeedRSS(url: string, categorias: string[]): Observable<any> {
+  adicionarFeedRSS(url: string, categoria: string): Observable<any> {
     const body = {
       url: url,
-      categorias: categorias, // Pode ser um array
+      categorias: categoria, // Backend espera 'categorias' como uma string
     };
     return this.http.post(`${this.apiUrl}/adicionar-feed`, body);
   }
 
+  /**
+   * Obtém todas as categorias disponíveis.
+   * @returns Observable com a lista de categorias
+   */
   getCategorias(): Observable<string[]> {
     return this.http.get<string[]>(`${this.apiUrl}/categorias`);
   }
-
-
 }
